@@ -21,8 +21,7 @@ class Request {
     // set header
     Request.instance.defaults.headers.post['Content-Type'] = 'application/json'
 
-    // use interceptor
-
+    // use interceptors
     // handle request
     Request.instance.interceptors.request.use(
       (config: AxiosRequestConfig) => {
@@ -35,7 +34,10 @@ class Request {
     Request.instance.interceptors.response.use(
       (response: AxiosResponse) => {
         // handle response
-        return response
+        if (response.status !== 200){
+          Request.errorHandle(response)
+        }
+        return response.data
       },
       (error: any) => {
         // send but not success
@@ -45,7 +47,7 @@ class Request {
           data: error ? error.data : null,
           level: 'error'
         }
-        return error ? Promise.reject(error) : { level: '' }
+        return Promise.reject(response)
       }
     )
 

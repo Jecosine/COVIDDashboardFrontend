@@ -1,6 +1,6 @@
 import BaseModel from "./BaseModel";
 
-export default class Subscription extends BaseModel {
+export default class Subscription extends BaseModel<Subscription> {
   id?: string;
   subscribeList?: string[];
   subscriber?: string;
@@ -12,8 +12,7 @@ export default class Subscription extends BaseModel {
     subscribeList: string[],
     subscriber: string
   }) {
-    super();
-    Object.assign(this, obj);
+    super(obj);
   }
 
   public testFunction(): string {
