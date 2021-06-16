@@ -15,7 +15,4 @@ export default class Subscription extends BaseModel<Subscription> {
     super(obj);
   }
 
-  public testFunction(): string {
-    return '';
-  }
 }
