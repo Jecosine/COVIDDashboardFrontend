@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "es5",
     "module": "esnext",
-    "strict": true,
+    "strict": false,
     "strictFunctionTypes": false,
     "jsx": "preserve",
     "importHelpers": true,
@@ -35,7 +35,7 @@
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx"
-  ],
+, "src/map/china.js"  ],
   "exclude": [
     "node_modules"
   ]
