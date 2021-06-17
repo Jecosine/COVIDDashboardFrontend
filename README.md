@@ -41,8 +41,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 柱状图 (横向)
 
-- 国内前十图 
-- 国际前十图
+- 国内新增当日确诊前十图`ChinaRank.vue` as Component 
+- 国际新增当日确诊前十图`WorldRank.vue` as Component
 
 趋势图
 
