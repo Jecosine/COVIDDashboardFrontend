@@ -1,18 +1,19 @@
 <!--
  * @Date: 2021-06-15 02:46:22
  * @LastEditors: Jecosine
- * @LastEditTime: 2021-06-17 20:22:47
+ * @LastEditTime: 2021-06-18 02:16:02
 -->
 <template>
   <el-container id="container">
     <el-aside :width="isCollapse?'64px':'200px'" id="side-container">
       <el-menu
         id="side-menu"
-        default-active="1-4-1"
+        default-active="/quickview"
         class="el-menu-vertical-demo"
         @open="handleOpen"
         @close="handleClose"
         :collapse="isCollapse"
+        router
       >
         <el-menu-item index="0" id="title-item">
           <i  @click="isCollapse = !isCollapse"
@@ -21,7 +22,10 @@
             <span id="logo-container">Asterisk</span>
           </template>
         </el-menu-item>
-        <el-menu-item index="1">
+        <el-menu-item 
+          index="/quickview"
+          key="quickview"
+          >
           <i class="el-icon-s-order"></i>
           <template #title>疫情速览</template>
         </el-menu-item>
@@ -70,8 +74,7 @@
       </el-header>
       <el-container>
         <el-main id="main-container">
-          <ChinaMap :metaData="{}" :plotOptions="{}" /> 
-
+          <router-view />
         </el-main>
         <el-footer id="footer-container"></el-footer>
       </el-container>
@@ -128,12 +131,12 @@
 </style>
 <script>
 // @ is an alias to /src
-import ChinaMap from "@/components/ChinaMap.vue";
+// import ChinaMap from "@/components/ChinaMap.vue";
 
 export default {
   name: "Home",
   components: {
-    ChinaMap,
+    // ChinaMap,
   },
   data() {
     return {

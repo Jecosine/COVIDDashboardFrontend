@@ -1,7 +1,7 @@
 /*
  * @Date: 2021-06-15 02:46:22
  * @LastEditors: Jecosine
- * @LastEditTime: 2021-06-17 19:50:38
+ * @LastEditTime: 2021-06-18 01:56:05
  */
 import { createApp } from 'vue'
 import App from './App.vue'
@@ -31,7 +31,7 @@ import {
   // ElCheckbox,
   // ElCheckboxButton,
   // ElCheckboxGroup,
-  // ElCol,
+  ElCol,
   // ElCollapse,
   // ElCollapseItem,
   // ElCollapseTransition,
@@ -69,7 +69,7 @@ import {
   ElRadioButton,
   ElRadioGroup,
   // ElRate,
-  // ElRow,
+  ElRow,
   // ElScrollbar,
   // ElSelect,
   // ElSlider,
@@ -81,7 +81,7 @@ import {
   // ElTable,
   // ElTableColumn,
   // ElTabs,
-  // ElTag,
+  ElTag,
   // ElTimePicker,
   // ElTimeSelect,
   // ElTimeline,
@@ -117,7 +117,7 @@ const components = [
   // ElCheckbox,
   // ElCheckboxButton,
   // ElCheckboxGroup,
-  // ElCol,
+  ElCol,
   // ElCollapse,
   // ElCollapseItem,
   // ElCollapseTransition,
@@ -155,7 +155,7 @@ const components = [
   ElRadioButton,
   ElRadioGroup,
   // ElRate,
-  // ElRow,
+  ElRow,
   // ElScrollbar,
   // ElSelect,
   // ElSlider,
@@ -167,7 +167,7 @@ const components = [
   // ElTable,
   // ElTableColumn,
   // ElTabs,
-  // ElTag,
+  ElTag,
   // ElTimePicker,
   // ElTimeSelect,
   // ElTimeline,

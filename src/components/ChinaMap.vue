@@ -2,7 +2,7 @@ import { defineComponent } from 'vue';
 <!--
  * @Date: 2021-06-16 19:34:39
  * @LastEditors: Jecosine
- * @LastEditTime: 2021-06-17 20:19:08
+ * @LastEditTime: 2021-06-18 01:51:18
 -->
 <template>
   <div id="map-container">
@@ -12,6 +12,20 @@ import { defineComponent } from 'vue';
         <el-radio-button label="confirm">当日确诊</el-radio-button>
         <el-radio-button label="recover">当日治愈</el-radio-button>
       </el-radio-group>
+      <div id="stat">
+        <div class="stat-item confirm">
+          <el-tag size="normal" type="error">确诊</el-tag>
+          <span class="stat-text">10</span>
+        </div>
+        <div class="stat-item suspect">
+          <el-tag size="normal" type="warning">疑似</el-tag>
+          <span class="stat-text">10</span>
+        </div>
+        <div class="stat-item recover">
+          <el-tag size="normal" type="success">治愈</el-tag>
+          <span class="stat-text">10</span>
+        </div>
+      </div>
     </div>
     <div id="chartContainer" ref="chartContainer"></div>
   </div>
@@ -143,5 +157,27 @@ export default defineComponent({
   height: 2.7rem;
   line-height: 2.7rem;
   margin-bottom: 20px;
+  justify-content: space-between;
+}
+#stat {
+  float: right;
+  display: flex;
+}
+.stat-item {
+  margin: 0 1rem;
+}
+.stat-text {
+  font-weight: bolder;
+  font-size: 1.2rem;
+  margin-left: 0.4rem;
+}
+.confirm {
+  color: #F56C6C;
+}
+.suspect {
+  color: #E6A23C;
+}
+.recover {
+  color: #67C23A;
 }
 </style>
