@@ -1,7 +1,7 @@
 <!--
  * @Date: 2021-06-15 02:46:22
  * @LastEditors: Jecosine
- * @LastEditTime: 2021-06-17 19:31:17
+ * @LastEditTime: 2021-06-17 20:22:47
 -->
 <template>
   <el-container id="container">
@@ -66,14 +66,14 @@
     <el-container :class="isCollapse ? 'expanded' : 'noexpanded'">
       <el-header id="navigation-container" height="3rem">
         <i class="el-icon-data-analysis"></i>
-        Title of Current Plot
+        {{currentTitle}}
       </el-header>
       <el-container>
         <el-main id="main-container">
           <ChinaMap :metaData="{}" :plotOptions="{}" /> 
 
         </el-main>
-        <el-footer id="footer-container">Footer</el-footer>
+        <el-footer id="footer-container"></el-footer>
       </el-container>
     </el-container>
   </el-container>
@@ -107,7 +107,7 @@
   height: 3rem;
   box-shadow: 0 0 0.4rem 0.4rem rgba(0,0,0,0.06);
   font-weight: bolder;
-  padding-left: 3rem;
+  padding-left: 2rem;
   color: #666260;
   /* background-color:bisque; */
 }
@@ -138,6 +138,7 @@ export default {
   data() {
     return {
       isCollapse: false,
+      currentTitle: '疫情速览'
     };
   },
   methods: {

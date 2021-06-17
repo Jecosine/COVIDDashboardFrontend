@@ -2,10 +2,10 @@ import { defineComponent } from 'vue';
 <!--
  * @Date: 2021-06-16 19:34:39
  * @LastEditors: Jecosine
- * @LastEditTime: 2021-06-17 20:01:29
+ * @LastEditTime: 2021-06-17 20:19:08
 -->
 <template>
-  <div id="container">
+  <div id="map-container">
     <div id="toolbox">
       <el-radio-group v-model="cate" style="margin-bottom: 20px;">
         <el-radio-button label="suspect">当日疑似</el-radio-button>
@@ -88,6 +88,30 @@ export default defineComponent({
               name: "广东省",
               value: 1,
             },
+            {
+              name: "福建省",
+              value: 6,
+            },
+            {
+              name: "广西省",
+              value: 1,
+            },
+            {
+              name: "北京市",
+              value: 4,
+            },
+            {
+              name: "上海市",
+              value: 3,
+            },
+            {
+              name: "湖南省",
+              value: 2,
+            },
+            {
+              name: "湖北省",
+              value: 7,
+            },
           ],
         }
       ],
@@ -101,18 +125,23 @@ export default defineComponent({
 });
 </script>
 <style lang="css" scoped>
-#container {
+#map-container {
   position: relative;
   width: 100%;
   height: 100%;
 }
 #chartContainer {
-  padding-top: 3rem;
-  min-width: 50vw;
-  min-height: 40vw;
+  width: 100%;
+  height: calc(100% - 4rem);
+  /* min-width: 50vw;
+  min-height: 40vw; */
+  border: solid 1px rgba(0,0,0,0.1);
 }
 #toolbox {
-  position: absolute;
-  left: 0.3rem;
+  display: flex;
+  flex-direction: row;
+  height: 2.7rem;
+  line-height: 2.7rem;
+  margin-bottom: 20px;
 }
 </style>
