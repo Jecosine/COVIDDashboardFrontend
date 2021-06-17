@@ -1,7 +1,7 @@
 /*
  * @Date: 2021-06-15 02:46:22
  * @LastEditors: Jecosine
- * @LastEditTime: 2021-06-16 19:33:50
+ * @LastEditTime: 2021-06-17 19:50:38
  */
 import { createApp } from 'vue'
 import App from './App.vue'
@@ -65,9 +65,9 @@ import {
   // ElPopover,
   // ElPopper,
   // ElProgress,
-  // ElRadio,
-  // ElRadioButton,
-  // ElRadioGroup,
+  ElRadio,
+  ElRadioButton,
+  ElRadioGroup,
   // ElRate,
   // ElRow,
   // ElScrollbar,
@@ -151,9 +151,9 @@ const components = [
   // ElPopover,
   // ElPopper,
   // ElProgress,
-  // ElRadio,
-  // ElRadioButton,
-  // ElRadioGroup,
+  ElRadio,
+  ElRadioButton,
+  ElRadioGroup,
   // ElRate,
   // ElRow,
   // ElScrollbar,
