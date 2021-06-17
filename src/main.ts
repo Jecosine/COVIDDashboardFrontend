@@ -1,7 +1,7 @@
 /*
  * @Date: 2021-06-15 02:46:22
  * @LastEditors: Jecosine
- * @LastEditTime: 2021-06-18 01:56:05
+ * @LastEditTime: 2021-06-18 04:00:20
  */
 import { createApp } from 'vue'
 import App from './App.vue'
@@ -78,8 +78,8 @@ import {
   ElSubmenu,
   // ElSwitch,
   // ElTabPane,
-  // ElTable,
-  // ElTableColumn,
+  ElTable,
+  ElTableColumn,
   // ElTabs,
   ElTag,
   // ElTimePicker,
@@ -164,8 +164,8 @@ const components = [
   ElSubmenu,
   // ElSwitch,
   // ElTabPane,
-  // ElTable,
-  // ElTableColumn,
+  ElTable,
+  ElTableColumn,
   // ElTabs,
   ElTag,
   // ElTimePicker,

@@ -1,7 +1,7 @@
 <!--
  * @Date: 2021-06-15 02:46:22
  * @LastEditors: Jecosine
- * @LastEditTime: 2021-06-18 02:16:02
+ * @LastEditTime: 2021-06-18 04:10:50
 -->
 <template>
   <el-container id="container">
@@ -76,7 +76,7 @@
         <el-main id="main-container">
           <router-view />
         </el-main>
-        <el-footer id="footer-container"></el-footer>
+        <el-footer id="footer-container" height="2rem"></el-footer>
       </el-container>
     </el-container>
   </el-container>

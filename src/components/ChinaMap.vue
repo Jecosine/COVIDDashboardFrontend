@@ -2,7 +2,7 @@ import { defineComponent } from 'vue';
 <!--
  * @Date: 2021-06-16 19:34:39
  * @LastEditors: Jecosine
- * @LastEditTime: 2021-06-18 01:51:18
+ * @LastEditTime: 2021-06-18 04:13:28
 -->
 <template>
   <div id="map-container">
@@ -27,7 +27,22 @@ import { defineComponent } from 'vue';
         </div>
       </div>
     </div>
-    <div id="chartContainer" ref="chartContainer"></div>
+    <el-row :gutter="20" id="container">
+      <el-col :span="16">
+        <!-- <el-button
+          circle
+          id="collapse-button"
+          :icon="isCollapse ? 'el-icon-right' : 'el-icon-back'"
+          @click="isCollapse = !isCollapse"
+        ></el-button> -->
+        <div id="chartContainer" ref="chartContainer"></div>
+      </el-col>
+      <el-col :span="8">
+        <div id="datatable-container">
+          <data-table :metaData="[]" />
+        </div>
+      </el-col>
+    </el-row>
   </div>
 </template>
 
@@ -36,106 +51,42 @@ import { defineComponent } from "vue";
 import { EChartsOption, EChartsType, GeoJSON } from "echarts";
 import * as echarts from "echarts";
 import { region } from "@/map/china";
+import DataTable from '@/components/Table.vue';
 export default defineComponent({
+  components: {
+    DataTable
+  },
   props: {
-    metaData: Object,
+    metaData: Array,
     plotOptions: Object,
   },
   data() {
     return {
+      isCollapse: false,
       cate: "suspect",
       charts: {} as EChartsType,
+      myOption: null
     };
   },
+  methods: {
+    updateData(delta) {
+      this.myOption.series[0].data = delta
+      this.charts.setOption(this.myOption)
+    }
+  },
   mounted() {
+    // const that = this
     const ele: HTMLElement = document.getElementById(
       "chartContainer"
     ) as HTMLElement;
-    const tempOption = {
-      visualMap: {
-        left: "right",
-        min: 0,
-        max: 10,
-        inRange: {
-          color: ["#a5e7f0", "#59c4e6", "#8fd3e8", "#8a7ca8", "#516b91"],
-        },
-        text: ["High", "Low"], // 文本，默认为数值文本
-        calculable: true,
-      },
-      tooltip: {
-        trigger: "item",
-        showDelay: 0,
-        transitionDuration: 0.2,
-        formatter: function(params) {
-          var value:any = (params.value + "").split(".");
-          value = value[0].replace(/(\d{1,3})(?=(?:\d{3})+(?!\d))/g, "$1,");
-          return params.seriesName + "<br/>" + params.name + ": " + value;
-        },
-      },
-      toolbox: {
-        show: true,
-        //orient: 'vertical',
-        left: "left",
-        top: "top",
-        feature: {
-          dataView: { readOnly: false },
-          restore: {},
-          saveAsImage: {},
-        },
-      },
-      series: [
-        {
-          name: "suspect",
-          type: "map",
-          map: "china",
-          roam: true,
-          emphasis: {
-            label: {
-              show: true,
-            },
-          },
-          textFixed: {
-            // Alaska: [20, -20]
-          },
-          data: [
-            {
-              name: "广东省",
-              value: 1,
-            },
-            {
-              name: "福建省",
-              value: 6,
-            },
-            {
-              name: "广西省",
-              value: 1,
-            },
-            {
-              name: "北京市",
-              value: 4,
-            },
-            {
-              name: "上海市",
-              value: 3,
-            },
-            {
-              name: "湖南省",
-              value: 2,
-            },
-            {
-              name: "湖北省",
-              value: 7,
-            },
-          ],
-        }
-      ],
-    };
     echarts.registerMap("china", region as GeoJSON);
     const charts: EChartsType = echarts.init(ele);
-    charts.setOption(tempOption as EChartsOption);
     this.charts = charts;
-    console.log(this.metaData, this.plotOptions);
+    this.myOption = this.plotOptions
+    this.charts.setOption(this.myOption as EChartsOption);
   },
+  watch: {
+  }
 });
 </script>
 <style lang="css" scoped>
@@ -144,12 +95,18 @@ export default defineComponent({
   width: 100%;
   height: 100%;
 }
+
+#container {
+  height: calc(100% - 3rem);
+  width: 100%;
+}
 #chartContainer {
   width: 100%;
   height: calc(100% - 4rem);
   /* min-width: 50vw;
   min-height: 40vw; */
-  border: solid 1px rgba(0,0,0,0.1);
+  border: solid 1px rgba(0, 0, 0, 0.1);
+  border-radius: 0.2rem;
 }
 #toolbox {
   display: flex;
@@ -172,12 +129,21 @@ export default defineComponent({
   margin-left: 0.4rem;
 }
 .confirm {
-  color: #F56C6C;
+  color: #f56c6c;
 }
 .suspect {
-  color: #E6A23C;
+  color: #e6a23c;
 }
 .recover {
-  color: #67C23A;
+  color: #67c23a;
+}
+#collapse-button {
+  position: absolute;
+  right: 1rem;
+  z-index: 65530;
+}
+#datatable-container {
+  border: solid 1px rgba(0, 0, 0, 0.1);
+  border-radius: 0.2rem;
 }
 </style>

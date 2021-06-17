@@ -2,3 +2,15 @@
   padding: 0;
   margin: 0;
 }
+.deaths {
+  color: #f56c6c;
+}
+.confirmed {
+  color: #e6a23c;
+}
+.recovered {
+  color: #67c23a;
+}
+.bold {
+  font-weight: bold;
+}
