@@ -1,7 +1,7 @@
 <!--
  * @Date: 2021-06-15 02:46:22
  * @LastEditors: Jecosine
- * @LastEditTime: 2021-06-18 04:10:50
+ * @LastEditTime: 2021-06-18 10:35:06
 -->
 <template>
   <el-container id="container">
@@ -15,7 +15,7 @@
         :collapse="isCollapse"
         router
       >
-        <el-menu-item index="0" id="title-item">
+        <el-menu-item index="/" id="title-item">
           <i  @click="isCollapse = !isCollapse"
               :class="isCollapse ? 'el-icon-s-unfold' : 'el-icon-s-fold'"></i>
           <template #title>
@@ -36,8 +36,8 @@
           </template>
           <el-menu-item-group>
             <template #title>历史数据</template>
-            <el-menu-item index="2-1">各省份统计</el-menu-item>
-            <el-menu-item index="2-2">自定义查询</el-menu-item>
+            <!-- <el-menu-item index="/province">各省份统计</el-menu-item> -->
+            <el-menu-item index="/nationNew">国内新增</el-menu-item>
           </el-menu-item-group>
           <el-menu-item-group title="数据下载">
             <el-menu-item index="2-3" disabled>时间线数据</el-menu-item>
@@ -52,8 +52,8 @@
           </template>
           <el-menu-item-group>
             <template #title>历史数据</template>
-            <el-menu-item index="3-1">各国数据</el-menu-item>
-            <el-menu-item index="3-2">自定义查询</el-menu-item>
+            <el-menu-item index="/international">各国数据</el-menu-item>
+            <el-menu-item index="/interNew">新增排名</el-menu-item>
           </el-menu-item-group>
           <el-menu-item-group title="数据下载" disabled>
             <el-menu-item index="3-3" disabled>时间线数据</el-menu-item>
@@ -76,7 +76,7 @@
         <el-main id="main-container">
           <router-view />
         </el-main>
-        <el-footer id="footer-container" height="2rem"></el-footer>
+        <!-- <el-footer id="footer-container" height="2rem"></el-footer> -->
       </el-container>
     </el-container>
   </el-container>

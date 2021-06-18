@@ -2,24 +2,24 @@ import { defineComponent } from 'vue';
 <!--
  * @Date: 2021-06-16 19:34:39
  * @LastEditors: Jecosine
- * @LastEditTime: 2021-06-18 04:13:28
+ * @LastEditTime: 2021-06-18 10:27:38
 -->
 <template>
   <div id="map-container">
     <div id="toolbox">
       <el-radio-group v-model="cate" style="margin-bottom: 20px;">
-        <el-radio-button label="suspect">当日疑似</el-radio-button>
-        <el-radio-button label="confirm">当日确诊</el-radio-button>
-        <el-radio-button label="recover">当日治愈</el-radio-button>
+        <el-radio-button label="confirmed">当日确诊</el-radio-button>
+        <el-radio-button label="deaths">当日死亡</el-radio-button>
+        <el-radio-button label="recovered">当日治愈</el-radio-button>
       </el-radio-group>
       <div id="stat">
         <div class="stat-item confirm">
-          <el-tag size="normal" type="error">确诊</el-tag>
-          <span class="stat-text">10</span>
+          <el-tag size="normal" type="error">死亡</el-tag>
+          <span class="stat-text">0</span>
         </div>
         <div class="stat-item suspect">
-          <el-tag size="normal" type="warning">疑似</el-tag>
-          <span class="stat-text">10</span>
+          <el-tag size="normal" type="warning">确诊</el-tag>
+          <span class="stat-text">5</span>
         </div>
         <div class="stat-item recover">
           <el-tag size="normal" type="success">治愈</el-tag>
@@ -39,7 +39,7 @@ import { defineComponent } from 'vue';
       </el-col>
       <el-col :span="8">
         <div id="datatable-container">
-          <data-table :metaData="[]" />
+          <data-table :metaData="metaData" />
         </div>
       </el-col>
     </el-row>
@@ -51,10 +51,11 @@ import { defineComponent } from "vue";
 import { EChartsOption, EChartsType, GeoJSON } from "echarts";
 import * as echarts from "echarts";
 import { region } from "@/map/china";
-import DataTable from '@/components/Table.vue';
+import DataTable from "@/components/Table.vue";
+
 export default defineComponent({
   components: {
-    DataTable
+    DataTable,
   },
   props: {
     metaData: Array,
@@ -65,14 +66,15 @@ export default defineComponent({
       isCollapse: false,
       cate: "suspect",
       charts: {} as EChartsType,
-      myOption: null
+      myOption: null,
+      myData: []
     };
   },
   methods: {
     updateData(delta) {
-      this.myOption.series[0].data = delta
-      this.charts.setOption(this.myOption)
-    }
+      this.myOption.series[0].data = delta;
+      this.charts.setOption(this.myOption);
+    },
   },
   mounted() {
     // const that = this
@@ -82,11 +84,10 @@ export default defineComponent({
     echarts.registerMap("china", region as GeoJSON);
     const charts: EChartsType = echarts.init(ele);
     this.charts = charts;
-    this.myOption = this.plotOptions
+    this.myOption = this.plotOptions;
     this.charts.setOption(this.myOption as EChartsOption);
   },
-  watch: {
-  }
+  watch: {},
 });
 </script>
 <style lang="css" scoped>

@@ -1,3 +1,8 @@
+/*
+ * @Date: 2021-06-15 02:46:22
+ * @LastEditors: Jecosine
+ * @LastEditTime: 2021-06-18 08:54:26
+ */
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
 
 class Request {
@@ -11,7 +16,7 @@ class Request {
     if (!Request.instance) {
       Request.instance = axios.create({
         timeout: 10000,
-        baseURL: "/api"
+        baseURL: "/"
       });
     }
     return Request.instance;
@@ -37,7 +42,7 @@ class Request {
         if (response.status !== 200){
           Request.errorHandle(response)
         }
-        return response.data
+        return response.data === undefined ? response : response.data
       },
       (error: any) => {
         // send but not success

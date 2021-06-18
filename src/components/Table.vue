@@ -1,7 +1,7 @@
 <!--
  * @Date: 2021-06-18 02:09:51
  * @LastEditors: Jecosine
- * @LastEditTime: 2021-06-18 04:16:59
+ * @LastEditTime: 2021-06-18 09:19:07
 -->
 <template>
   <div id="container">
@@ -69,6 +69,8 @@ export default {
             recovered: 2,
           },
         ];
+      } else {
+        this.myData = this.metaData;
       }
     });
   },

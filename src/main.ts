@@ -1,7 +1,7 @@
 /*
  * @Date: 2021-06-15 02:46:22
  * @LastEditors: Jecosine
- * @LastEditTime: 2021-06-18 04:00:20
+ * @LastEditTime: 2021-06-18 08:49:32
  */
 import { createApp } from 'vue'
 import App from './App.vue'
@@ -57,8 +57,8 @@ import {
   ElMenu,
   ElMenuItem,
   ElMenuItemGroup,
-  // ElOption,
-  // ElOptionGroup,
+  ElOption,
+  ElOptionGroup,
   // ElPageHeader,
   // ElPagination,
   // ElPopconfirm,
@@ -71,7 +71,7 @@ import {
   // ElRate,
   ElRow,
   // ElScrollbar,
-  // ElSelect,
+  ElSelect,
   // ElSlider,
   // ElStep,
   // ElSteps,
@@ -143,8 +143,8 @@ const components = [
   ElMenu,
   ElMenuItem,
   ElMenuItemGroup,
-  // ElOption,
-  // ElOptionGroup,
+  ElOption,
+  ElOptionGroup,
   // ElPageHeader,
   // ElPagination,
   // ElPopconfirm,
@@ -157,7 +157,7 @@ const components = [
   // ElRate,
   ElRow,
   // ElScrollbar,
-  // ElSelect,
+  ElSelect,
   // ElSlider,
   // ElStep,
   // ElSteps,
